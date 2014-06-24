@@ -1,10 +1,16 @@
 apply plugin: 'java'
 
+repositories {
+   mavenCentral()
+}
+
 
 dependencies {
    compile fileTree("${System.getenv().DSE_HOME}/resources/cassandra/lib/") {
       include '*.jar'
    }
+
+   compile 'org.slf4j:slf4j-api:1.7.7'
 }
 
 
