@@ -1,0 +1,12 @@
+apply plugin: 'java'
+
+
+task convert(type: JavaExec) {
+   main = ''
+   classpath = runtimeClasspath
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.12'
+}
+

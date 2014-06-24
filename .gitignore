@@ -1,2 +1,4 @@
-build
-outputs
+build/
+outputs/
+.gradle/
+
