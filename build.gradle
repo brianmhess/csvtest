@@ -7,7 +7,8 @@ dependencies {
 
 
 task convert(type: JavaExec) {
-   main = ''
+   main = 'Csv2SSTable'
+   args = ['/home/ubuntu/dev/csv/data.txt', '/home/ubuntu/dev/csv/outputs/']
    classpath = runtimeClasspath
 }
 
