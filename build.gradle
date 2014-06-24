@@ -2,7 +2,9 @@ apply plugin: 'java'
 
 
 dependencies {
-   compile files("${System.getenv().DSE_HOME}/resources/cassandra/lib/cassandra-all-2.0.8-20140528.165211-4.jar")
+   compile fileTree("${System.getenv().DSE_HOME}/resources/cassandra/lib/") {
+      include '*.jar'
+   }
 }
 
 
