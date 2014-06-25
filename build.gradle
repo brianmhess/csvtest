@@ -1,22 +1,21 @@
 apply plugin: 'java'
 
+
+//def dseHome = System.getenv().DSE_HOME
+def dseHome = "/Users/tlberglund/Tools/dse-4.0.3"
+
 repositories {
    mavenCentral()
 }
 
-
 dependencies {
-   compile fileTree("${System.getenv().DSE_HOME}/resources/cassandra/lib/") {
-      include '*.jar'
-   }
-
-   compile 'org.slf4j:slf4j-api:1.7.7'
+   compile fileTree("${dseHome}/resources")
 }
 
 
 task convert(type: JavaExec) {
    main = 'Csv2SSTable'
-   args = ['/home/ubuntu/dev/csv/data.txt', '/home/ubuntu/dev/csv/outputs/']
+   args = [file('data.txt'), file('outputs/')]
    classpath = runtimeClasspath
 }
 
