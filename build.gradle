@@ -9,13 +9,15 @@ repositories {
 
 dependencies {
    compile fileTree("${dseHome}/resources")
+   compile fileTree("${dseHome}/lib")
 }
-
 
 task convert(type: JavaExec) {
    main = 'Csv2SSTable'
    args = [file('data.txt'), file('outputs/')]
-   classpath = runtimeClasspath + files("${dseHome}/resources/cassandra/conf/")
+   classpath = runtimeClasspath +
+               files("${dseHome}/resources/cassandra/conf/") +
+               files("${dseHome}/resources/dse/conf/")
 }
 
 task wrapper(type: Wrapper) {
