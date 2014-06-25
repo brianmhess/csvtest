@@ -1,8 +1,7 @@
 apply plugin: 'java'
 
 
-//def dseHome = System.getenv().DSE_HOME
-def dseHome = "/Users/tlberglund/Tools/dse-4.0.3"
+def dseHome = System.getenv().DSE_HOME
 
 repositories {
    mavenCentral()
@@ -16,7 +15,7 @@ dependencies {
 task convert(type: JavaExec) {
    main = 'Csv2SSTable'
    args = [file('data.txt'), file('outputs/')]
-   classpath = runtimeClasspath
+   classpath = runtimeClasspath + files("${dseHome}/resources/cassandra/conf/")
 }
 
 task wrapper(type: Wrapper) {
